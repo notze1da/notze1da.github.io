@@ -1,0 +1,30 @@
+# Assignment 2 – Dynamic Background Based on Time of Day
+
+This is the second assignment for **COP4813 – Web Programming**, hosted at:
+
+[https://notze1da.github.io/assgn2](https://notze1da.github.io/assgn2)
+
+---
+
+## Overview
+
+This assignment demonstrates how to use JavaScript to create a dynamic background color that changes based on the user's local time of day. The page also displays personalized messages and adjusts text colors for better readability.
+
+---
+
+## Features
+
+- Background color changes depending on the hour (morning, midday, evening, night).
+- Personalized greeting message based on the time of day.
+- Smooth transition effect on background color changes.
+- Text color adjusts automatically for contrast.
+
+---
+
+## How to Run
+
+Simply open the page in a modern browser:
+
+- [https://notze1da.github.io/assgn2](https://notze1da.github.io/assgn2)
+
+Or open `index.html` locally and the script will automatically set the background and message based on your system time.
