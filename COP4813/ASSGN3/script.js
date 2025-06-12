@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.color = "#000000";
     } else if (hour >= 18 && hour <= 21) {
         // Evening
-        background.style.backgroundImage = "url(https://images.unsplash.com/photo-1653475763590-cc5be6b9fd22?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZXZlbmluZyUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D)";
+        background.style.backgroundImage = "url(https://images.unsplash.com/photo-1532509334149-d2130d74253c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWZ0ZXJub29uJTIwdGVhfGVufDB8fDB8fHww)";
         message.textContent = "Getting close to bedtime!";
         document.body.style.color = "#000000";
     } else {
