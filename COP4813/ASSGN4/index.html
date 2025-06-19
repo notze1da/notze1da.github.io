@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anime Universe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      padding: 20px;
+      background-color: #ffcc00;
+      margin: 0;
+    }
+
+    .subject {
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      font-weight: bold;
+      color: #0077cc;
+    }
+
+    .subject:hover {
+      transform: scale(1.05);
+    }
+
+    .topics {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .topics a {
+      display: block;
+      color: #444;
+      text-decoration: none;
+      margin: 0.5rem 0;
+    }
+
+    .topics a:hover {
+      color: #0077cc;
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .subject {
+        font-size: 1.2rem;
+      }
+
+      .topics a {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Anime Universe</h1>
+
+  <div class="container">
+    <div class="subject" onclick="toggle('shonen')">Shonen</div>
+    <div class="topics" id="shonen">
+      <a href="shonen/naruto.html">Naruto</a>
+      <a href="shonen/onepiece.html">One Piece</a>
+      <a href="shonen/dragonball.html">Dragon Ball</a>
+      <a href="shonen/bleach.html">Bleach</a>
+    </div>
+
+    <div class="subject" onclick="toggle('shojo')">Shojo</div>
+    <div class="topics" id="shojo">
+      <a href="shojo/sailormoon.html">Sailor Moon</a>
+      <a href="shojo/sakura.html">Cardcaptor Sakura</a>
+      <a href="shojo/fruitsbasket.html">Fruits Basket</a>
+      <a href="shojo/nana.html">Nana</a>
+    </div>
+
+    <div class="subject" onclick="toggle('seinen')">Seinen</div>
+    <div class="topics" id="seinen">
+      <a href="seinen/berserk.html">Berserk</a>
+      <a href="seinen/monster.html">Monster</a>
+      <a href="seinen/tokyoghoul.html">Tokyo Ghoul</a>
+      <a href="seinen/psychopass.html">Psycho-Pass</a>
+    </div>
+  </div>
+
+  <script>
+    function toggle(id) {
+      const topicDiv = document.getElementById(id);
+      const isVisible = topicDiv.style.display === 'block';
+      topicDiv.style.display = isVisible ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
