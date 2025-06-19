@@ -68,7 +68,8 @@
 </head>
 <body>
   <h1>Anime Universe</h1>
-
+    <p>Click on a subject to explore its topics!</p>
+    <!-- This is the main container for the subjects and topics -->
   <div class="container">
     <div class="subject" onclick="toggle('shonen')">Shonen</div>
     <div class="topics" id="shonen">
@@ -94,7 +95,7 @@
       <a href="seinen/psychopass.html">Psycho-Pass</a>
     </div>
   </div>
-
+<!-- This script toggles the visibility of the topics when a subject is clicked -->
   <script>
     function toggle(id) {
       const topicDiv = document.getElementById(id);
