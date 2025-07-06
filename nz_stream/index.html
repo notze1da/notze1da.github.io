@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notze1da Bubble Chat</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at bottom right, #fff4, transparent),
+                  linear-gradient(135deg, #7ae3ff11 0%, #a0ecbc11 100%);
+      font-family: 'Quicksand', sans-serif;
+      overflow: hidden;
+    }
+
+    #chat-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      max-width: 700px;
+    }
+
+    .msg {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      animation: popIn 0.3s ease-out;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .bubble {
+      background: white;
+      color: #222;
+      padding: 12px 16px;
+      border-radius: 18px;
+      max-width: 80%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .username {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 4px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    .owner .username {
+      background: #a0ecbc; color: #0e3f2e;
+    }
+    .mod .username {
+      background: #d35b41; color: white;
+    }
+    .member .username {
+      background: #a0ecbc; color: #0e3f2e;
+    }
+    .viewer .username {
+      background: #7ae3ff; color: #053b4d;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container"></div>
+
+  <script>
+    const chat = document.getElementById("chat-container");
+
+    function addMessage({ username, message, avatar, role }) {
+      const wrapper = document.createElement("div");
+      wrapper.className = `msg ${role}`;
+
+      const avatarImg = document.createElement("img");
+      avatarImg.className = "avatar";
+      avatarImg.src = avatar;
+
+      const bubble = document.createElement("div");
+      bubble.className = "bubble";
+
+      const name = document.createElement("div");
+      name.className = "username";
+      name.textContent = username;
+
+      const text = document.createElement("div");
+      text.className = "text";
+      text.innerHTML = message;
+
+      bubble.appendChild(name);
+      bubble.appendChild(text);
+      wrapper.appendChild(avatarImg);
+      wrapper.appendChild(bubble);
+
+      chat.appendChild(wrapper);
+
+      if (chat.children.length > 25) {
+        chat.removeChild(chat.children[0]);
+      }
+
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    // Listen for chat events from Casterlabs Koi
+    window.addEventListener("message", (event) => {
+      if (event.data && event.data.type === "chat") {
+        const d = event.data.data;
+        const role = d.isStreamer ? "owner" :
+                     d.isModerator ? "mod" :
+                     d.isSupporter ? "member" : "viewer";
+
+        addMessage({
+          username: d.username,
+          message: d.message,
+          avatar: d.profilePicture || "https://ui-avatars.com/api/?name=" + d.username,
+          role
+        });
+      }
+    });
+  </script>
+</body>
+</html>
