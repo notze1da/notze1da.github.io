@@ -1,0 +1,36 @@
+/*This is for the style of the index page*/
+
+/* Background container styling */
+#background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease;
+    background-attachment: fixed;
+    background-color: #000000; /* Black background filler behind image */
+}
+
+/* Body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Main content container */
+main {
+    padding: 10vh 5vw;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
